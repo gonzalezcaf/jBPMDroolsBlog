@@ -1,3 +1,29 @@
-I have some files for sharing with you.
-
-Please be patient and let's rock!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root Index</title>
+</head>
+<body>
+    <h1>Installation</h1>
+    <p>Date: Aug31st 2023</p>
+    <p>[OBJECTIVE]</p>
+    <p>Execute a simple first installation of the jBPM.</p>
+    <p>[REQUERIMENTS]</p>
+    <p>Download from the jBPM site the last version 7.74.1.Final. At the moment of this article were reported 2 issued registered by the JIRA's:</p>
+    <p>https://issues.redhat.com/browse/JBPM-10160 (jBPM 7.73 Installation does not work on java 11.0.16 anymore).</p>
+    <p>https://issues.redhat.com/browse/WFLY-14625 (WARN message jaegertracing: FlushCommand execution failed!)</p>
+    <p>These will be fixed in the next minor or cummulative version. No worries!</p>
+    <p>OpenJDK version 8 installed</p>
+    <p>[STEPS]</p>
+    <p>Extract the zip file to a custom folder $ unzip jbpm-server-7.74.1.Final-dist.zip</p>
+    <p>Run the command to start application server (WildFly) and the jBPM components. $ bin/standalone.sh</p>
+    <p>Use a web browser and try the url http://localhost:8080/business-central</p>
+    <p>Use the default users set up for the product:</p>
+    <p>wbadmin | admin,analyst,user,process-admin,kie-server kieserver | rest-all</p>
+    <p>[OUTCOMES]</p>
+    <p>You have the jBPM running! However, there are a lot of settings you can use or apply as security, persistence, clustering, cloud-native, tunning and so on and so forth. The next entries on the blog I will cover those topics.</p>
+    <p>See you soon!</p>   
+</body>
+</html>
