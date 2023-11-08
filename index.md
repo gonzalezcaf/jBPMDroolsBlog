@@ -1,4 +1,4 @@
-# jBPMDroolsBlog
+
 # GOAL
 * Execute a simple first installation of the jBPM.
 
