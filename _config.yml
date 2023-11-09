@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
+plugins:
+- jekyll-remote-theme
 title: jBPMDroolsBlog
 description: A personal or simple blog for interesting tips about jBPM or Drools
