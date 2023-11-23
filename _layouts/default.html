@@ -42,7 +42,7 @@
 
         /* Estilos para el contenido principal */
         .main-content {
-            margin-left: 0; /* Inicialmente alineado con el borde izquierdo */
+            margin-left: 0; /* Menú replegado al inicio */
             padding: 20px;
             transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
         }
@@ -109,8 +109,8 @@
         window.onload = function() {
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.getElementById('content');
-            sidebar.style.left = '0';
-            mainContent.style.marginLeft = '250px';
+            sidebar.style.left = '-250px'; /* Menú replegado al inicio */
+            mainContent.style.marginLeft = '0';
         }
 
         function toggleSidebar() {
