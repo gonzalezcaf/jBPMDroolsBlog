@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
+<head>
     <meta charset="UTF-8">
-
-{% seo %}
+    {% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,31 +10,63 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
-  </head>
-  <body>
-    <a id="skip-to-content" href="#content">Skip to the content.</a>
+    <style>
+        /* Estilos del menú lateral */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            overflow-y: auto; /* Agregar barras de desplazamiento si el contenido es largo */
+        }
 
-    <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      {% if site.github.is_project_page %}
-        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-      {% endif %}
-      {% if site.show_downloads %}
-        <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
-        <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
-      {% endif %}
-    </header>
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
 
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Estilos para el contenido principal */
+        .main-content {
+            margin-left: 270px; /* Ajustar para dejar espacio al menú lateral */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sección 1</a></li>
+            <li><a href="#">Sección 2</a></li>
+            <li><a href="#">Contacto</a></li>
+            <!-- Agregar más elementos según sea necesario -->
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
     <main id="content" class="main-content" role="main">
-      {{ content }}
+        {{ content }}
+    </main>
 
-      <footer class="site-footer">
+    <footer class="site-footer">
         {% if site.github.is_project_page %}
-          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+            <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
         {% endif %}
         <span class="site-footer-credits">This page was ALTERED by ME<a href="https://pages.github.com">GitHub Pages</a>.</span>
-      </footer>
-    </main>
-  </body>
+    </footer>
+</body>
 </html>
