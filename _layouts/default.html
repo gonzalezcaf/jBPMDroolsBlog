@@ -15,13 +15,14 @@
         .sidebar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: -250px; /* Inicialmente oculto fuera de la pantalla */
             bottom: 0;
             width: 250px;
             background-color: #333;
             color: #fff;
             padding: 20px;
-            overflow-y: auto; /* Agregar barras de desplazamiento si el contenido es largo */
+            transition: left 0.3s ease; /* Agregar transición al desplegar/replegar */
+            z-index: 1000;
         }
 
         .sidebar ul {
@@ -40,12 +41,27 @@
 
         /* Estilos para el contenido principal */
         .main-content {
-            margin-left: 270px; /* Ajustar para dejar espacio al menú lateral */
+            margin-left: 0; /* Inicialmente alineado con el borde izquierdo */
             padding: 20px;
+            transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
+        }
+
+        /* Estilo para el botón de desplegar/replegar el menú */
+        .toggle-menu {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 1100;
         }
     </style>
 </head>
 <body>
+    <!-- Botón para desplegar/replegar el menú -->
+    <div class="toggle-menu" onclick="toggleSidebar()">
+        ☰
+    </div>
+
     <header class="page-header" role="banner">
         <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
         <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
@@ -59,7 +75,7 @@
     </header>
 
     <!-- Menú lateral -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Sección 1</a></li>
@@ -80,5 +96,20 @@
         {% endif %}
         <span class="site-footer-credits">This page was ALTERED by ME<a href="https://pages.github.com">GitHub Pages</a>.</span>
     </footer>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('content');
+
+            if (sidebar.style.left === '-250px') {
+                sidebar.style.left = '0';
+                mainContent.style.marginLeft = '250px';
+            } else {
+                sidebar.style.left = '-250px';
+                mainContent.style.marginLeft = '0';
+            }
+        }
+    </script>
 </body>
 </html>
