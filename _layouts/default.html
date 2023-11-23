@@ -15,7 +15,7 @@
         .sidebar {
             position: fixed;
             top: 0;
-            left: -250px; /* Inicialmente oculto fuera de la pantalla */
+            left: 0;
             bottom: 0;
             width: 250px;
             background-color: #333;
@@ -42,7 +42,7 @@
 
         /* Estilos para el contenido principal */
         .main-content {
-            margin-left: 0; /* Inicialmente alineado con el borde izquierdo */
+            margin-left: 250px; /* Menú desplegado al inicio */
             padding: 20px;
             transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
         }
@@ -55,10 +55,7 @@
             cursor: pointer;
             z-index: 1100;
             color: #fff; /* Icono con color que contraste con el fondo del encabezado */
-            font-size: 36px;
-            background-color: #333; /* Cambiar color de fondo del botón */
-            padding: 5px 10px;
-            border-radius: 3px;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -75,7 +72,7 @@
         {% endif %}
     </header>
 
-    <!-- Menu lateral -->
+    <!-- Menú lateral -->
     <div class="sidebar" id="sidebar">
         <div class="toggle-menu" onclick="toggleSidebar()">
             ☰ <!-- Icono de menú -->
@@ -96,4 +93,31 @@
 
     <footer class="site-footer">
         {% if site.github.is_project_page %}
-            <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</
+            <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">This page was ALTERED by ME<a href="https://pages.github.com">GitHub Pages</a>.</span>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('content');
+            sidebar.style.left = '0';
+            mainContent.style.marginLeft = '250px';
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('content');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                mainContent.style.marginLeft = '0';
+            } else {
+                sidebar.style.left = '0px';
+                mainContent.style.marginLeft = '250px';
+            }
+        }
+    </script>
+</body>
+</html>
