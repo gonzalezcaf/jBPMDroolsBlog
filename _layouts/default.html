@@ -63,6 +63,8 @@
         .site-footer {
             position: relative;
             z-index: 1;
+            margin-left: 0; /* Agregar margen izquierdo para evitar superposición */
+            transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
         }
     </style>
 </head>
@@ -109,20 +111,25 @@
         window.onload = function() {
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.getElementById('content');
+            const footer = document.querySelector('.site-footer');
             sidebar.style.left = '-250px'; /* Menú replegado al inicio */
             mainContent.style.marginLeft = '0';
+            footer.style.marginLeft = '0'; /* Agregar margen izquierdo al footer */
         }
 
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.getElementById('content');
+            const footer = document.querySelector('.site-footer');
 
             if (sidebar.style.left === '0px') {
                 sidebar.style.left = '-250px';
                 mainContent.style.marginLeft = '0';
+                footer.style.marginLeft = '0'; /* Restablecer margen izquierdo del footer */
             } else {
                 sidebar.style.left = '0px';
                 mainContent.style.marginLeft = '250px';
+                footer.style.marginLeft = '250px'; /* Ajustar margen izquierdo del footer */
             }
         }
     </script>
