@@ -15,7 +15,7 @@
         .sidebar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: -250px; /* Inicialmente oculto fuera de la pantalla */
             bottom: 0;
             width: 250px;
             background-color: #333;
@@ -42,7 +42,7 @@
 
         /* Estilos para el contenido principal */
         .main-content {
-            margin-left: 250px; /* Menú desplegado al inicio */
+            margin-left: 0; /* Inicialmente alineado con el borde izquierdo */
             padding: 20px;
             transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
         }
@@ -58,15 +58,21 @@
             top: 20px;
             left: 20px;
         }
+
+        /* Estilo para el footer */
+        .site-footer {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
     <header class="page-header" role="banner" style="background-color: #2c3e50;"> <!-- Cambiar color de fondo del encabezado -->
-        <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-        <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
         <div class="toggle-menu" onclick="toggleSidebar()">
             ☰ <!-- Icono de menú -->
         </div>
+        <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+        <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
         {% if site.github.is_project_page %}
             <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
         {% endif %}
