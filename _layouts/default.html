@@ -10,61 +10,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
-    <style>
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            bottom: 0;
-            width: 250px;
-            background-image: linear-gradient(to bottom, #292929, #1f1f1f);
-            color: #ffffff;
-            padding: 20px;
-            overflow-y: auto;
-            transition: left 0.3s ease;
-            z-index: 1000;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .main-content {
-            margin-left: 0;
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-            background-color: #f2f2f2;
-            color: #353535;
-        }
-
-        .toggle-menu {
-            cursor: pointer;
-            z-index: 1100;
-            color: #ffffff;
-            font-size: 24px;
-            margin: 20px;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-        }
-
-        .site-footer {
-            position: relative;
-            z-index: 1;
-            margin-left: 0;
-            text-align: right;
-            transition: margin-left 0.3s ease;
-    </style>
 </head>
 <body>
     <header class="page-header" role="banner"> <!-- Cambiar color de fondo del encabezado -->
