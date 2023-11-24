@@ -12,11 +12,9 @@
     {% include head-custom.html %}
     <style>
         .page-header {
-            padding: 10px 20px;
-            background-color: #ee0000; /* Color de fondo del encabezado */
-            color: #ffffff; /* Color del texto del encabezado */
-        }
-
+            padding: 10px 20px; /* Reducir el padding vertical y horizontal */
+        }      
+          
         /* Estilos del menú lateral */
         .sidebar {
             position: fixed;
@@ -24,11 +22,11 @@
             left: -250px; /* Inicialmente oculto fuera de la pantalla */
             bottom: 0;
             width: 250px;
-            background-image: linear-gradient(to bottom, #1f1f1f, #353535); /* Degradado de arriba hacia abajo para el menú */
-            color: #ffffff; /* Texto del menú */
+            background-image: linear-gradient(to bottom, #1f2a35, #35455f); /* Degradado azul oscuro de arriba hacia abajo */
+    color: #EEE; /* Texto claro para el menú */
             padding: 20px;
-            overflow-y: auto;
-            transition: left 0.3s ease;
+            overflow-y: auto; /* Agregar barras de desplazamiento si el contenido es largo */
+            transition: left 0.3s ease; /* Agregar transición al desplegar/replegar */
             z-index: 1000;
         }
 
@@ -42,24 +40,22 @@
         }
 
         .sidebar a {
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
         }
 
         /* Estilos para el contenido principal */
         .main-content {
-            margin-left: 0;
+            margin-left: 0; /* Menú replegado al inicio */
             padding: 20px;
-            transition: margin-left 0.3s ease;
-            background-color: #353535; /* Color de fondo del contenido principal */
-            color: #f2f2f2; /* Color del texto del contenido principal */
+            transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
         }
 
         /* Estilo para el botón de desplegar/replegar el menú */
         .toggle-menu {
             cursor: pointer;
             z-index: 1100;
-            color: #ffffff;
+            color: #fff; /* Icono con color que contraste con el fondo del encabezado */
             font-size: 24px;
             margin: 20px;
             position: fixed;
@@ -71,16 +67,16 @@
         .site-footer {
             position: relative;
             z-index: 1;
-            margin-left: 0;
-            text-align: right;
-            transition: margin-left 0.3s ease;
+            margin-left: 0; /* Agregar margen izquierdo para evitar superposición */
+            text-align: right; /* Alinear texto del footer a la derecha */            
+            transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
         }
     </style>
 </head>
 <body>
-    <header class="page-header" role="banner">
+    <header class="page-header" role="banner" style="background-color: #2c3e50;"> <!-- Cambiar color de fondo del encabezado -->
         <div class="toggle-menu" onclick="toggleSidebar()">
-            ☰
+            ☰ <!-- Icono de menú -->
         </div>
         <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
         <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
@@ -100,6 +96,7 @@
             <li><a href="#">Sección 1</a></li>
             <li><a href="#">Sección 2</a></li>
             <li><a href="#">Contacto</a></li>
+            <!-- Agregar más elementos según sea necesario -->
         </ul>
     </div>
 
@@ -117,4 +114,29 @@
 
     <script>
         window.onload = function() {
-            const sidebar
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('content');
+            const footer = document.querySelector('.site-footer');
+            sidebar.style.left = '-250px'; /* Menú replegado al inicio */
+            mainContent.style.marginLeft = '0';
+            footer.style.marginLeft = '0'; /* Agregar margen izquierdo al footer */
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('content');
+            const footer = document.querySelector('.site-footer');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                mainContent.style.marginLeft = '0';
+                footer.style.marginLeft = '0'; /* Restablecer margen izquierdo del footer */
+            } else {
+                sidebar.style.left = '0px';
+                mainContent.style.marginLeft = '250px';
+                footer.style.marginLeft = '250px'; /* Ajustar margen izquierdo del footer */
+            }
+        }
+    </script>
+</body>
+</html>
