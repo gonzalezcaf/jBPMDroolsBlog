@@ -11,59 +11,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
     <style>
-        .page-header {
-            padding: 10px 20px; /* Reducir el padding vertical y horizontal */
-        }      
 
-        /* Estilos del menú lateral */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px; /* Inicialmente oculto fuera de la pantalla */
-            bottom: 0;
-            width: 250px;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            overflow-y: auto; /* Agregar barras de desplazamiento si el contenido es largo */
-            transition: left 0.3s ease; /* Agregar transición al desplegar/replegar */
-            z-index: 1000;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-        .sidebar li {
-            margin-bottom: 10px;
-        }
-        .sidebar a {
-            color: #fff;
-            text-decoration: none;
-        }
-        /* Estilos para el contenido principal */
-        .main-content {
-            margin-left: 0; /* Menú replegado al inicio */
-            padding: 20px;
-            transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
-        }
-        /* Estilo para el botón de desplegar/replegar el menú */
-        .toggle-menu {
-            cursor: pointer;
-            z-index: 1100;
-            color: #fff; /* Icono con color que contraste con el fondo del encabezado */
-            font-size: 24px;
-            margin: 20px;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-        }
-        /* Estilo para el footer */
-        .site-footer {
-            position: relative;
-            z-index: 1;
-            margin-left: 0; /* Agregar margen izquierdo para evitar superposición */
-            transition: margin-left 0.3s ease; /* Agregar transición al desplegar/replegar */
-        }
     </style>
 </head>
 <body>
